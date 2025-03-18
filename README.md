@@ -5,17 +5,18 @@ Este repositório consta o projeto em frentes (Back-end e Front-end)
     - Tipo: Maven;
     - Versão Java: 21;
     - Dependências: Spring JPA, Rest Repositories, MySQL Driver e Lombok.
+    - Repositório original: ['ACJavaWEBAPI'] (https://github.com/investfgg/ACJavaWEBAPI)
 
   ** FRONT-END > This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
     - Typescript
     - CSS
     - HTML
+    - Comunica com a página de Back-end, para execução de métodos CRUD (SQL).
 
 Tela principal do sistema:
 
 ![image](https://github.com/user-attachments/assets/df1afa71-84e7-47ee-bc24-496924f709aa)
-
 
   Obs importantes:
 
@@ -24,7 +25,6 @@ Tela principal do sistema:
       - [R] significa 'Leitura' - fase de desenvolvimento;
     2) Se todas as opções estiverem preenchidas com a mesma sigla descrita ('[CR]'), a aplicação está em
        pleno funcionamento (remoção de todas as siglas).
-
 
 A finalidade deste projeto é controlar o acesso ao usuário pela aplicação não de si mesmo e sim de outras.
 
