@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body
+{
+    height: 100%;
+}
+
+body
+{
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.swal2-border-radius-red
+{
+    -webkit-border-radius: 5px !important; -moz-border-radius: 5px !important; border-radius: 5px !important;
+    -webkit-border: 2px solid red !important; -moz-border: 2px solid red !important; border: 2px solid red !important;
+    background-color: #ffe5e5;
+}
+
+.swal2-border-radius-purple
+{
+    -webkit-border-radius: 5px !important; -moz-border-radius: 5px !important; border-radius: 5px !important;
+    -webkit-border: 2px solid #673AB7 !important; -moz-border: 2px solid #673AB7 !important; border: 2px solid #673AB7 !important;
+    background-color: lavender;
+}
+
+td.roboto
+{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
