@@ -1,27 +1,46 @@
-# AngularAccesscontrol
+Este repositório consta o projeto em frentes (Back-end e Front-end)
+  
+  ** BACK-END > Spring Boot Initializr versão 3.4.0, utilizando o editor Java intelliJ Idea (Community Edition):
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
+    - Tipo: Maven;
+    - Versão Java: 21;
+    - Dependências: Spring JPA, Rest Repositories, MySQL Driver e Lombok.
 
-## Development server
+  ** FRONT-END > This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    - Typescript
+    - CSS
+    - HTML
 
-## Code scaffolding
+Tela principal do sistema:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/user-attachments/assets/df1afa71-84e7-47ee-bc24-496924f709aa)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  Obs importantes:
 
-## Running unit tests
+    1) O projeto está em fase de finalização, cujas siglas:
+      - [CR] significa 'Criação e Leitura' - fase de finalização;
+      - [R] significa 'Leitura' - fase de desenvolvimento;
+    2) Se todas as opções estiverem preenchidas com a mesma sigla descrita ('[CR]'), a aplicação está em
+       pleno funcionamento (remoção de todas as siglas).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+A finalidade deste projeto é controlar o acesso ao usuário pela aplicação não de si mesmo e sim de outras.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://github.com/user-attachments/assets/05d9b1cf-9708-4afc-8901-1e5b2da65bcb)
 
-## Further help
+Elaboração de tabelas e seus respectivos relacionamentos escritas em MySQL Workbench.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://github.com/user-attachments/assets/342a8814-6f09-4741-b459-d5b93a1d439a)
+
+Detalhes gerais do BD de Controle de Acesso (Tabelas e Stored Procedures).
+
+O propósito geral é testar as funcionalidades nas tabelas com seus relacionamentos baseadas em CRUD via WEB API (sem utilização de Hibernate local) usando os métodos do BD MySQL (Stored Procedures) com regras básicas de negócio:
+
+  - nulos.
+  - conferência de senha.
+  - tamanho escasso (menos de 3 caracteres) ou em excesso (acima do permitido).
+  - existência de campos chaves nos relacionamentos.
+
+As API's das tabelas foram testadas com exaustão respeitando os princípios da regra de negócio apresentada acima utilizando Postman (GET, POST, PUT, e DELETE) - 2 imagens acima, obtendo resultados em JSON (dados ou mensagem extraída diretamente no Stored Procedure no caso de algo acontecer, diferentemente do código 404).
