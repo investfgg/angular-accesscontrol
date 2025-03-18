@@ -1,0 +1,55 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Applications Registration</div>
+        <img class="flex-container_image" src="../../../assets/app-file-outline-icon.png" alt="Application Icon" loading="lazy">
+    </div>
+
+    <div style="text-align: right; padding-top: 20px;">
+        <button mat-raised-button color="accent" routerLink="/application-list" class="mrb">
+            <mat-icon>list</mat-icon>Back to List
+        </button>
+    </div>
+
+    <div class="card p-5 mt-4">
+        <form #tbApplicationForm="ngForm" (ngSubmit)="saveApplication( tbApplicationForm )" novalidate>
+            <div style="background-color: floralwhite;">
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Application Name" name="name" id="name" [(ngModel)]="tbApplication.name" [formControl]="appForm_name" [minlength]="4" [maxlength]="100" (blur)="appForm_nameErrMess()" />
+                    <mat-error *ngIf="tbApplication.name.trim() == '' || tbApplication.name.trim().length < 4">{{ errorMessage1() }}</mat-error>
+                    <mat-icon matSuffix>apps</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Application Title" id="title" name="title" [(ngModel)]="tbApplication.title" [formControl]="appForm_title" required [minlength]="4" [maxlength]="100" (blur)="appForm_titleErrMess()" />
+                    <mat-error *ngIf="tbApplication.title.trim() == '' || tbApplication.title.trim().length < 4">{{ errorMessage2() }}</mat-error>
+                    <mat-icon matSuffix>title</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Acronym</mat-label>
+                    <input matInput placeholder="Application Acronym" id="acronym" name="acronym" [(ngModel)]="tbApplication.acronym" [formControl]="appForm_acronym" required [minlength]="4" [maxlength]="20" (blur)="appForm_acronymErrMess()" />
+                    <mat-error *ngIf="tbApplication.acronym.trim() == '' || tbApplication.acronym.trim().length < 4">{{ errorMessage3() }}</mat-error>
+                    <mat-icon matSuffix>computer</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="Application Description" id="description" name="description" [(ngModel)]="tbApplication.description" [formControl]="appForm_description" required [minlength]="4" [maxlength]="250" (blur)="appForm_descriptionErrMess()" />
+                    <mat-error *ngIf="tbApplication.description.trim() != '' || tbApplication.description.trim().length < 4">{{ errorMessage4() }}</mat-error>
+                    <mat-icon matSuffix>description</mat-icon>
+                </mat-form-field>
+
+                <mat-divider style="margin-bottom: 25px;"></mat-divider>
+
+                <div class="text-end">
+                    <button type="reset" mat-raised-button color="primary" class="m-2" onclick="clearForm()">Clear Form</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" name="Save" class="m-2">
+                        <mat-icon>done_all</mat-icon>Save Data
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

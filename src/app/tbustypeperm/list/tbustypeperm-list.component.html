@@ -1,0 +1,66 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">User Types by Permissions Registration</div>
+        <img class="flex-container_image" src="../../../assets/ustypeperm_64.png" alt="User Types by Permissions Icon" loading="lazy">
+    </div>
+
+    <div class="info_buttons">
+      <button type="button" class="btn btn-info infoQtde">Qtde Registros: {{ qtdeRegistros }}</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="accent" routerLink="/ustypesperm" class="mrb">
+        <mat-icon>note_add</mat-icon>Create New Data
+      </button>
+    </div>
+
+    <section class="table-container mat-elevation-z8 mt-4">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th class="mat-header-cell th_id" mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell class="th_id" *matCellDef="let element">{{ zerosLeft( element.id, 4 ) }}</td>
+            </ng-container>
+
+            <!-- User Type ID Column -->
+            <ng-container matColumnDef="usertypes.id" [ngStyle]="">
+                <th class="mat-header-cell roboto_relship_id" mat-header-cell *matHeaderCellDef>User Type ID</th>
+                <td mat-cell *matCellDef="let element" class="roboto_relship_id">{{ zerosLeft( element.usertypes.id, 4 ) }}</td>
+            </ng-container>
+
+            <!-- User Type Title Column -->
+            <ng-container matColumnDef="usertypes.title" [ngStyle]="">
+              <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>User Type Title</th>
+              <td mat-cell *matCellDef="let element" class="roboto_relship">{{ element.usertypes.title }}</td>
+            </ng-container>
+
+            <!-- User Type Description Column -->
+            <ng-container matColumnDef="usertypes.description" [ngStyle]="">
+                <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>User Type Description</th>
+                <td mat-cell *matCellDef="let element" class="roboto_relship_description">
+                    <a class="description_title" matTooltip="{{ showTooltipDescription( element.usertypes.description ) }}" data-html="true" tooltip-append-to-body="true">{{ limitCharsDescription( element.usertypes.description, 50 ) }}</a>
+                </td>
+            </ng-container>
+  
+              <!-- Permission ID Column -->
+            <ng-container matColumnDef="permissions.id" [ngStyle]="">
+                <th class="mat-header-cell roboto_relship_id" mat-header-cell *matHeaderCellDef>Permission ID</th>
+                <td mat-cell *matCellDef="let element" class="roboto_relship_id">{{ zerosLeft( element.permissions.id, 4 ) }}</td>
+            </ng-container>
+
+            <!-- Permission Title Column -->
+            <ng-container matColumnDef="permissions.title" [ngStyle]="">
+                <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>Permission Title</th>
+                <td mat-cell *matCellDef="let element" class="roboto_relship">{{ element.permissions.title }}</td>
+            </ng-container>
+
+            <!-- Permission Description Column -->
+            <ng-container matColumnDef="permissions.description" [ngStyle]="">
+                <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>Permission Description</th>
+                <td mat-cell *matCellDef="let element" class="roboto_relship_description">
+                    <a class="description_title" matTooltip="{{ showTooltipDescription( element.permissions.description ) }}" data-html="true" tooltip-append-to-body="true">{{ limitCharsDescription( element.permissions.description, 50 ) }}</a>
+                </td>
+            </ng-container>
+
+            <tr class="mat-header-row" style="height: 32px;" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+            <tr class="mat-row" style="height: 32px;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+</div>

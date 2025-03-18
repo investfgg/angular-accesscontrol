@@ -1,0 +1,69 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Users Access Registration</div>
+        <img class="flex-container_image" src="../../../assets/id-card.png" alt="Users Access Icon" loading="lazy">
+    </div>
+
+    <div style="text-align: right; padding-top: 20px;">
+        <button mat-raised-button color="accent" routerLink="/usraccess-list" class="mrb">
+            <mat-icon>list</mat-icon>Back to List
+        </button>
+    </div>
+
+    <div class="card p-5 mt-4">
+        <form #tbUsrAccessForm="ngForm" (ngSubmit)="saveUsrAccess( tbUsrAccessForm )" novalidate>
+            <div style="background-color: floralwhite;">
+                <div class="example-form-fields">
+                    <mat-form-field appearance="outline" style="margin-bottom: 25px; width: 800px;">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Enter the username" name="username" id="username" [(ngModel)]="tbUsrAccess.username" [formControl]="usrAcForm_username" required [minlength]="4" [maxlength]="100" (blur)="usrAcForm_usernameErrMess()" />
+                        <mat-error *ngIf="tbUsrAccess.username.trim() != '' || tbUsrAccess.username.trim().length < 4">{{ errorMessage1() }}</mat-error>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="outline" style="margin-bottom: 25px; width: 400px; margin-left: 75px;">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide() ? 'password' : 'text'" placeholder="Enter the password" name="password" [(ngModel)]="tbUsrAccess.password" [formControl]="usrAcForm_password" required [maxLength]="100" (blur)="usrAcForm_passwordErrMess()" />
+                        <mat-error *ngIf="tbUsrAccess.password.trim() != '' || tbUsrAccess.password.trim().length < 4">{{ errorMessage2() }}</mat-error>
+                        <mat-icon matSuffix>password</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="margin-bottom: 25px; width: 400px; margin-left: 75px;">
+                        <mat-label>Confirm your password</mat-label>
+                        <input matInput [type]="hide() ? 'password' : 'text'" placeholder="Enter the password" name="password2" [(ngModel)]="password2" [formControl]="usrAcForm_password2" required [maxLength]="100" (blur)="usrAcForm_password2ErrMess()" />
+                        <mat-error *ngIf="password2.trim() != '' || password2.trim().length < 4">{{ errorMessage3() }}</mat-error>
+                        <mat-icon matSuffix>password</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Tip</mat-label>
+                    <input matInput placeholder="Enter the tip" id="tip" name="tip" [(ngModel)]="tbUsrAccess.tip" [formControl]="usrAcForm_tip" required [minlength]="4" [maxlength]="250" (blur)="usrAcForm_tipErrMess()" />
+                    <mat-error *ngIf="tbUsrAccess.tip.trim() != '' || tbUsrAccess.tip.trim().length < 4">{{ errorMessage4() }}</mat-error>
+                    <mat-icon matSuffix>description</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 600px">
+                    <mat-label>User's Information</mat-label>
+                    <mat-select required [(ngModel)]="tbUsrAccess.users" [formControl]="usrAcForm_idUsers" (blur)="usrAcForm_idUsersErrMess()">
+                        <mat-option>Select user</mat-option>
+                        <mat-option *ngFor="let userData of dataSourceUser" [value]="userData.id">Name: {{ userData.name }} * Email: {{ userData.email }}</mat-option>
+                    </mat-select>
+                    @if (usrAcForm_idUsers.hasError( 'required' ))
+                    {
+                        <mat-error>{{ errorMessage5() }}</mat-error>
+                    }
+                </mat-form-field>
+            
+                <mat-divider style="margin-bottom: 25px;"></mat-divider>
+
+                <div class="text-end">
+                    <button type="reset" mat-raised-button color="primary" class="m-2" onclick="clearForm()">Clear Form</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" name="Save" class="m-2">
+                        <mat-icon>done_all</mat-icon>Save Data
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

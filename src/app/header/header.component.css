@@ -1,0 +1,11 @@
+.example-spacer
+{
+    flex: 1 1 auto;
+}
+
+.m-icon:hover
+{
+    border: 1px solid yellow;
+    background-color: #9370DB;
+    color: yellow;
+}

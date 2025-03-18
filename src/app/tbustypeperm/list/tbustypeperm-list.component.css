@@ -1,0 +1,137 @@
+.title
+{
+    text-align: center;
+}
+
+.container-fluid
+{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.flex-container
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 1%;
+    align-items: center;
+    -webkit-border-radius: 5px !important; -moz-border-radius: 5px !important; border-radius: 5px !important;
+    -webkit-border: 2px solid #673AB7 !important; -moz-border: 2px solid #673AB7 !important; border: 2px solid #673AB7 !important;
+    background-color: lavender;
+}
+
+.flex-container_title
+{
+    padding-left: 1%;
+    font-size: x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flex-container_image
+{
+    padding-right: 1%;
+}
+
+section
+{
+    border-radius: 10px;
+}
+
+table
+{
+    width: 100%;
+    background-color: aliceblue;
+}
+
+.info_buttons
+{
+    text-align: right;
+    padding-top: 20px;
+}
+
+.mrb:hover
+{
+    background-color: #FFA500;
+}
+
+.infoQtde:hover
+{
+    background-color: #6666FF;
+    color: white;
+    cursor: default;
+}
+
+.table-container
+{
+    height: 577px;
+    overflow: auto;
+    border: 1px solid purple;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+table tr:first-child th
+{
+    background-color: #673AB7;
+    color: white;
+    border-bottom: 1px solid gainsboro;
+    font-size: medium;
+}
+
+td
+{
+    border-bottom: 1px solid purple;
+}
+
+.mat-row:hover
+{
+    cursor: pointer;
+    background-color: lavender;
+    color: purple;
+}
+
+.th_id
+{
+    text-align: right;
+    width: 1%;
+}
+
+td.roboto_relship_id
+{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    text-align: left;
+    color: blue;
+    width: 8%;
+}
+
+td.roboto_relship
+{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: blue;
+}
+
+td.roboto_relship_description
+{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: blue;
+}
+
+a.description_title
+{
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: blue;
+    text-decoration: none;
+}

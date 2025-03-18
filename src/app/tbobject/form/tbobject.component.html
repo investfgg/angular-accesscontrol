@@ -1,0 +1,41 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Objects Registration</div>
+        <img class="flex-container_image" src="../../../assets/objects_64.png" alt="Object Icon" loading="lazy">
+    </div>
+
+    <div style="text-align: right; padding-top: 20px;">
+        <button mat-raised-button color="accent" routerLink="/object-list" class="mrb">
+            <mat-icon>list</mat-icon>Back to List
+        </button>
+    </div>
+
+    <div class="card p-5 mt-4">
+        <form #tbObjectForm="ngForm" (ngSubmit)="saveObject( tbObjectForm )" novalidate>
+            <div style="background-color: floralwhite;">
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Object Title" id="title" name="title" [(ngModel)]="tbObject.title" [formControl]="objForm_title" required [minlength]="4" [maxlength]="100" (blur)="objForm_titleErrMess()" />
+                    <mat-error *ngIf="tbObject.title.trim() != '' || tbObject.title.trim().length < 4">{{ errorMessage1() }}</mat-error>
+                    <mat-icon matSuffix>title</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="Object Description" id="description" name="description" [(ngModel)]="tbObject.description" [formControl]="objForm_description" required [minlength]="4" [maxlength]="250" (blur)="objForm_descriptionErrMess()" />
+                    <mat-error *ngIf="tbObject.description.trim() != '' || tbObject.description.trim().length < 4">{{ errorMessage2() }}</mat-error>
+                    <mat-icon matSuffix>description</mat-icon>
+                </mat-form-field>
+
+                <mat-divider style="margin-bottom: 25px;"></mat-divider>
+
+                <div class="text-end">
+                    <button type="reset" mat-raised-button color="primary" class="m-2" onclick="clearForm()">Clear Form</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" name="Save" class="m-2">
+                        <mat-icon>done_all</mat-icon>Save Data
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

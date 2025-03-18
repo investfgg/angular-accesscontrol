@@ -1,0 +1,50 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Users Registration</div>
+        <img class="flex-container_image" src="../../../assets/id-card.png" alt="User Icon" loading="lazy">
+    </div>
+
+    <div style="text-align: right; padding-top: 20px;">
+        <button mat-raised-button color="accent" routerLink="/user-list" class="mrb">
+            <mat-icon>list</mat-icon>Back to List
+        </button>
+    </div>
+
+    <div class="card p-5 mt-4">
+        <form #tbUserForm="ngForm" (ngSubmit)="saveUser( tbUserForm )" novalidate>
+            <div style="background-color: floralwhite;">
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="User Name" name="name" id="name" [(ngModel)]="tbUser.name" [formControl]="usrForm_name" required [minlength]="4" [maxlength]="100" (blur)="usrForm_nameErrMess()" />
+                    <mat-error *ngIf="tbUser.name.trim() != '' || tbUser.name.trim().length < 4">{{ errorMessage1() }}</mat-error>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" id="email" email placeholder="User Email" name="email" [(ngModel)]="tbUser.email" [formControl]="usrForm_email" required [maxLength]="100" (blur)="usrForm_emailErrMess()" />
+                    @if (usrForm_email.invalid)
+                    {
+                    <mat-error>{{ errorMessage2() }}</mat-error>
+                    }
+                    <mat-icon matSuffix>contact_mail</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="margin-bottom: 25px;">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="User Description" id="description" name="description" [(ngModel)]="tbUser.description" [formControl]="usrForm_description" required [minlength]="4" [maxlength]="250" (blur)="usrForm_descriptionErrMess()" />
+                    <mat-error *ngIf="tbUser.description.trim() != '' || tbUser.description.trim().length < 4">{{ errorMessage3() }}</mat-error>
+                    <mat-icon matSuffix>description</mat-icon>
+                </mat-form-field>
+
+                <mat-divider style="margin-bottom: 25px;"></mat-divider>
+
+                <div class="text-end">
+                    <button type="reset" mat-raised-button color="primary" class="m-2" onclick="clearForm()">Clear Form</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" name="Save" class="m-2">
+                        <mat-icon>done_all</mat-icon>Save Data
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

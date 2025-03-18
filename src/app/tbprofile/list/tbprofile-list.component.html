@@ -1,0 +1,131 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Profiles Registration</div>
+        <img class="flex-container_image" src="../../../assets/profile_64.png" alt="Profiles Icon" loading="lazy">
+    </div>
+
+    <div class="info_buttons">
+      <button type="button" class="btn btn-info infoQtde">Qtde Registros: {{ qtdeRegistros }}</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="accent" routerLink="/profile" class="mrb">
+        <mat-icon>note_add</mat-icon>Create New Data
+      </button>
+    </div>
+
+    <section class="table-container mat-elevation-z8 mt-4">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th class="mat-header-cell th_id" mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell class="th_id" *matCellDef="let element">{{ zerosLeft( element.id, 4 ) }}</td>
+          </ng-container>
+
+          <!-- Apps by Objs ID Column -->
+          <ng-container matColumnDef="appsobjs.id" [ngStyle]="">
+            <th class="mat-header-cell roboto_relship_id" mat-header-cell *matHeaderCellDef>Apps by Objs<BR>ID</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship_id">{{ zerosLeft( element.appsobjs.id, 4 ) }}</td>
+          </ng-container>
+
+          <!-- Users by Apps ID Column -->
+          <ng-container matColumnDef="usersapps.id" [ngStyle]="">
+            <th class="mat-header-cell roboto_relship_id" mat-header-cell *matHeaderCellDef>Users By Apps<BR>ID</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship_id">{{ zerosLeft( element.usersapps.id, 4 ) }}</td>
+          </ng-container>
+
+          <!-- User Types by Permissions ID Column -->
+          <ng-container matColumnDef="ustypeperms.id" [ngStyle]="">
+            <th class="mat-header-cell roboto_relship_id" mat-header-cell *matHeaderCellDef>Users Type by<br>Permissions ID</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship_id">{{ zerosLeft( element.ustypeperms.id, 4 ) }}</td>
+          </ng-container>
+
+          <!-- Application's Info Column -->
+          <ng-container matColumnDef="usersapps.applications.id" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>Application's<BR>Info</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship" style="width: 10%">
+              <ng-template #infoApp>
+                <div style="text-align: left">
+                  <strong>ID: </strong>{{ zerosLeft( element.usersapps.applications.id, 4 ) }}<BR/>
+                  <strong>NAME: </strong>{{ element.usersapps.applications.name }}<BR/>
+                  <strong>TITLE: </strong>{{ element.usersapps.applications.title }}<BR/>
+                  <strong>ACRONYM: </strong>{{ element.usersapps.applications.acronym }}
+                </div>
+              </ng-template>
+              <a class="description_title me-2" placement="end" [ngbTooltip]="infoApp">More details<BR>(Hover me)...</a>
+            </td>
+          </ng-container>
+
+          <!-- Application's Info Column is ignored /\ Apps vs Obj -->
+
+          <!-- Object's Info Column -->
+          <ng-container matColumnDef="appsobjs.objects.id" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>Object's<BR>Info</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship" style="width: 10%">
+              <ng-template #infoObj>
+                <div style="text-align: left">
+                  <strong>ID: </strong>{{ zerosLeft( element.appsobjs.objects.id, 4 ) }}<BR/>
+                  <strong>TITLE: </strong>{{ element.appsobjs.objects.title }}<BR/>
+                  <strong>DESCRIPTION: </strong>{{ element.appsobjs.objects.description }}
+                </div>
+              </ng-template>
+              <a class="description_title me-2" placement="end" [ngbTooltip]="infoObj">More details<BR>(Hover me)...</a>
+            </td>
+          </ng-container>
+
+          <!-- User Access' Info Column -->
+          <ng-container matColumnDef="usersapps.usrsAccesses.id" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>User Access'<BR>Info</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship" style="width: 10%">
+              <ng-template #infoUsa>
+                <div style="text-align: left">
+                  <strong>ID: </strong>{{ zerosLeft( element.usersapps.usrsAccesses.id, 4 ) }}<BR/>
+                  <strong>USERNAME: </strong>{{ element.usersapps.usrsAccesses.username }}<BR/>
+                  <strong>PASSWORD: </strong>********<BR>
+                  <strong>TIP: </strong>********<BR>
+                </div>
+              </ng-template>
+              <a class="description_title me-2" placement="end" [ngbTooltip]="infoUsa">More details<BR>(Hover me)...</a>
+            </td>
+          </ng-container>
+
+          <!-- User Type's Info Column -->
+          <ng-container matColumnDef="ustypeperms.usertypes.id" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>User Type's<BR>Info</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship" style="width: 10%">
+              <ng-template #infoUst>
+                <div style="text-align: left">
+                  <strong>ID: </strong>{{ zerosLeft( element.ustypeperms.usertypes.id, 4 ) }}<BR/>
+                  <strong>TITLE: </strong>{{ element.ustypeperms.usertypes.title }}<BR/>
+                  <strong>DESCRIPTION: </strong>{{ element.ustypeperms.usertypes.description }}
+                </div>
+              </ng-template>
+              <a class="description_title me-2" placement="end" [ngbTooltip]="infoUst">More details<BR>(Hover me)...</a>
+            </td>
+          </ng-container>
+
+          <!-- Permission's Info Column -->
+          <ng-container matColumnDef="ustypeperms.permissions.id" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef>Permission's<BR>Info</th>
+            <td mat-cell *matCellDef="let element" class="roboto_relship" style="width: 10%">
+              <ng-template #infoPer>
+                <div style="text-align: left">
+                  <strong>ID: </strong>{{ zerosLeft( element.ustypeperms.permissions.id, 4 ) }}<BR/>
+                  <strong>TITLE: </strong>{{ element.ustypeperms.permissions.title }}<BR/>
+                  <strong>DESCRIPTION: </strong>{{ element.ustypeperms.permissions.description }}
+                </div>
+              </ng-template>
+              <a class="description_title me-2" placement="end" [ngbTooltip]="infoPer">More details<BR>(Hover me)...</a>
+            </td>
+          </ng-container>
+
+          <!-- Star Column -->
+          <ng-container matColumnDef="operations" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef>Operations</th>
+            <td mat-cell *matCellDef="let element">TESTE
+              <button mat-button (click)="openDialog('111','222')" style="color: White; background-color: lavender; border: 1px #673AB7 solid; border-radius: 25px;">Info</button>
+            </td>
+          </ng-container>
+
+          <tr class="mat-header-row" style="height: 32px;" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+          <tr class="mat-row" style="height: 32px;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </section>
+  </div>

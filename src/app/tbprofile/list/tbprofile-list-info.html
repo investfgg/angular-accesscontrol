@@ -1,0 +1,13 @@
+<div>
+  <div mat-dialog-title class="mat-dialog-title">
+    {{ data?.title }}
+  </div>
+  <div mat-dialog-content><BR>
+    <div [innerHTML]="data?.info"></div>
+  </div>
+  <div>
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close class="mat-dialog-close">Close</button>
+    </mat-dialog-actions>
+  </div>
+</div>

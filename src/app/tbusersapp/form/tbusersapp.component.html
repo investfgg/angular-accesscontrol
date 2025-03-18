@@ -1,0 +1,66 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Users Access by Applications Registration</div>
+        <img class="flex-container_image" src="../../../assets/authorization_64.png" alt="Users Access by Applications Icon" loading="lazy">
+    </div>
+
+    <div style="text-align: right; padding-top: 20px;">
+        <button mat-raised-button color="accent" routerLink="/usersapp-list" class="mrb">
+            <mat-icon>list</mat-icon>Back to List
+        </button>
+    </div>
+
+    <div class="card p-5 mt-4">
+        <form #tbUserAppForm="ngForm" (ngSubmit)="saveUserApp( tbUserAppForm )" novalidate>
+            <div style="background-color: floralwhite;">
+
+                <mat-form-field appearance="outline" style="width: 800px; margin-left: 60px;">
+                    <mat-label>Application's Information</mat-label>
+                    <mat-select required [(ngModel)]="tbUserApp.applications" [formControl]="usrAppForm_idApplications" (blur)="usrAppForm_idApplicationsErrMess()">
+                        <mat-option>Select application</mat-option>
+                        <mat-option *ngFor="let userDataApp of dataSourceApplication" [value]="userDataApp.id">
+                            <span style="color:blue">Name</span> & <span style="color:green">Title</span>: 
+                            <span style="color:blue">{{ userDataApp.name.trim() }}</span> /\ <span style="color:green">{{ userDataApp.title.trim() }}</span></mat-option>
+                    </mat-select>
+                    @if (usrAppForm_idApplications.hasError( 'required' ))
+                    {
+                        <mat-error>{{ errorMessage1() }}</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 800px; margin-left: 60px;">
+                    <mat-label>Users Access' Information</mat-label>
+                    <mat-select required [(ngModel)]="tbUserApp.usrsAccesses" [formControl]="usrAppForm_idUsrsAccess " (blur)="usrAppForm_idUsrsAccessErrMess()">
+                        <mat-option>Select user access</mat-option>
+                        @for (userDataUA of dataSourceUserAccess; track userDataUA.id)
+                        {
+                            @for (users of dataSourceUser; track users.id)
+                            {
+                                @if (userDataUA.id == users.id)
+                                {
+                        <mat-option [value]="userDataUA.id">
+                            <span style="color:blue">Username: {{ userDataUA.username }}</span> /\ 
+                            <span style="color:green">User: {{ users.name }} - {{ users.email }}</span>
+                        </mat-option>
+                                }
+                            }
+                        }
+                    </mat-select>
+                    @if (usrAppForm_idUsrsAccess.hasError( 'required' ))
+                    {
+                        <mat-error>{{ errorMessage2() }}</mat-error>
+                    }
+                </mat-form-field>
+            
+                <mat-divider style="margin-bottom: 25px;"></mat-divider>
+
+                <div class="text-end">
+                    <button type="reset" mat-raised-button color="primary" class="m-2" onclick="clearForm()">Clear Form</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" name="Save" class="m-2">
+                        <mat-icon>done_all</mat-icon>Save Data
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

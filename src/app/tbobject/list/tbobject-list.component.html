@@ -1,0 +1,38 @@
+<div class="container-fluid mt-3">
+    <div class="flex-container">
+        <div class="flex-container_title">Objects Registration</div>
+        <img class="flex-container_image" src="../../../assets/objects_64.png" alt="Object Icon" loading="lazy">
+    </div>
+
+    <div class="info_buttons">
+      <button type="button" class="btn btn-info infoQtde">Qtde Registros: {{ qtdeRegistros }}</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="accent" routerLink="/object" class="mrb">
+        <mat-icon>note_add</mat-icon>Create New Data
+      </button>
+    </div>
+
+    <section class="table-container mat-elevation-z8 mt-4">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th class="mat-header-cell th_id" mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell class="th_id" *matCellDef="let element">{{ zerosLeft( element.id, 4 ) }}</td>
+          </ng-container>
+        
+          <!-- Title Column -->
+          <ng-container matColumnDef="title" [ngStyle]="">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element" class="roboto">{{ element.title }}</td>
+          </ng-container>
+        
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th class="mat-header-cell" mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element" class="roboto">{{ element.description }}</td>
+          </ng-container>
+        
+          <tr class="mat-header-row" style="height: 32px;" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+          <tr class="mat-row" style="height: 32px;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </section>
+</div>

@@ -1,0 +1,67 @@
+mat-form-field
+{
+    width: 100%;
+}
+
+mat-error
+{
+    font-weight: 200;
+    text-align: right;
+}
+
+.title
+{
+    text-align: center;
+}
+
+.container-fluid
+{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.flex-container
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 1%;
+    align-items: center;
+    -webkit-border-radius: 5px !important; -moz-border-radius: 5px !important; border-radius: 5px !important;
+    -webkit-border: 2px solid #673AB7 !important; -moz-border: 2px solid #673AB7 !important; border: 2px solid #673AB7 !important;
+    background-color: lavender;
+}
+
+.flex-container_title
+{
+    padding-left: 1%;
+    font-size: x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flex-container_image
+{
+    padding-right: 1%;
+}
+
+.imgUser
+{
+    background: url("../../../assets/text-editor_64.png") no-repeat center;
+}
+
+.mrb:hover
+{
+    background-color: #FFA500;
+}
+
+.card
+{
+    background-color: floralwhite;
+    border: 1px solid #673AB7;
+}
+
+.m-2:hover
+{
+    background-color: #9370DB;
+    color: yellow;
+}
