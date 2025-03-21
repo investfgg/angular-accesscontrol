@@ -20,10 +20,12 @@ Tela principal do sistema:
 
   Obs importantes:
 
-    1) O projeto está em fase de finalização, cujas siglas:
-      - [CR] significa 'Criação e Leitura' - fase de finalização;
-      - [R] significa 'Leitura' - fase de desenvolvimento;
-    2) Se todas as opções estiverem preenchidas com a mesma sigla descrita ('[CR]'), a aplicação está em
+    1) O projeto está em fase de finalização, cujas siglas baseadas em CRUD:
+      - [CR] significa 'Create e Read' - fase de finalização;
+      - [R] significa 'Read' - fase de finalização;
+      - Sem as siglas adicionadas ('UD') estão em fase de desenvolvimento.
+
+    2) Se todas as opções estiverem preenchidas com a mesma sigla descrita ('[CRUD]'), a aplicação está em
        pleno funcionamento (remoção de todas as siglas).
 
 A finalidade deste projeto é controlar o acesso ao usuário pela aplicação não de si mesmo e sim de outras.
